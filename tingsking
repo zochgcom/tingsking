@@ -30,7 +30,7 @@ $username=( ( Get-WMIObject -class Win32_ComputerSystem | Select-Object -ExpandP
 $wshell = New-Object -ComObject wscript.shell;
 
 function wait {
-param($wwee)
+param([int]$wwee)
 Sleep-Start -m $wwee
 }
 
