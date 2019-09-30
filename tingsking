@@ -8,7 +8,7 @@ public static extern bool ShowWindow(IntPtr hWnd, Int32 nCmdShow);
 $consolePtr = [Console.Window]::GetConsoleWindow()
 [Console.Window]::ShowWindow($consolePtr, 0)
 
-cd "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp" 
+cd "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
 
 New-Item -Path . -Name "WinEssentials.bat" -ItemType "file" -Value @"
 @echo off
