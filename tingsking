@@ -65,5 +65,5 @@ $encoded = [Convert]::ToBase64String($Bytes)
 $ps = $s;
 }
 }
-Start-Sleep -m 100
+Sleep-Start -m 100
 }
