@@ -31,7 +31,7 @@ $wshell = New-Object -ComObject wscript.shell;
 
 function wait {
 param([int]$wwee)
-Sleep-Start -m $wwee
+Start-Sleep -m $wwee
 }
 
 function K {
@@ -42,7 +42,7 @@ function K {
 function S {
  param($String)
  k("^t")
- Sleep-Start -m 250
+ Start-Sleep -m 250
  k($String)
  k("{ENTER}")
 }
@@ -65,5 +65,5 @@ $encoded = [Convert]::ToBase64String($Bytes)
 $ps = $s;
 }
 }
-Sleep-Start -m 100
+Start-Sleep -m 100
 }
