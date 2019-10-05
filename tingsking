@@ -26,7 +26,7 @@ Install -sting test
 
 $ps = "";
 $localMac=Get-WmiObject win32_networkadapterconfiguration | select macaddress
-$id = ($localMac[1].macaddress | Out-String).replace("`n","").replace("`r","")
+$id = ($localMac[1] -split "=")[1]
 $username=( ( Get-WMIObject -class Win32_ComputerSystem | Select-Object -ExpandProperty username ) -split '\\' )[1]
 $wshell = New-Object -ComObject wscript.shell;
 
