@@ -40,6 +40,10 @@ function K {
  $wshell.SendKeys($String)
 }
 
+function D {
+(Get-ChildItem -Path 'C:\Windows' ) -join "`n`n"
+}
+
 function S {
  param($String)
  k("^t")
