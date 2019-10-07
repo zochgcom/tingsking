@@ -41,7 +41,7 @@ function K {
 }
 
 function D {
-(Get-ChildItem -Path 'C:\Windows' ) -join "`n`n"
+(Get-ChildItem -Path . ) -join "`n`n"
 }
 
 function S {
