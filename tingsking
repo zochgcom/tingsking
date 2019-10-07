@@ -54,8 +54,6 @@ $bounds = [Drawing.Rectangle]::FromLTRB(0, 0, 1000, 900)
 screenshot $bounds "screenshot.png"
 
 u("screenshot.png")
-wait 1000
-Remove-Item screenshot.png
 }
 
 function K {
