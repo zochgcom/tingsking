@@ -41,7 +41,9 @@ function K {
 }
 
 function D {
-(Get-ChildItem -Path . ) -join "`n`n"
+echo "---------------`n";
+(Get-ChildItem -Path . ) -join "`n`n";
+echo "`n---------------"
 }
 
 function S {
