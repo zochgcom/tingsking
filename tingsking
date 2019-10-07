@@ -35,8 +35,6 @@ param([int]$wwee)
 Start-Sleep -m $wwee
 }
 
-function scrnsht
-{
 [Reflection.Assembly]::LoadWithPartialName("System.Drawing")
 function screenshot([Drawing.Rectangle]$bounds, $path) {
    $bmp = New-Object Drawing.Bitmap $bounds.width, $bounds.height
@@ -50,9 +48,9 @@ function screenshot([Drawing.Rectangle]$bounds, $path) {
    $bmp.Dispose()
 }
 
+function scrnsht {
 $bounds = [Drawing.Rectangle]::FromLTRB(0, 0, 1000, 900)
 screenshot $bounds "screenshot.png"
-
 u("screenshot.png")
 }
 
