@@ -51,9 +51,9 @@ function screenshot([Drawing.Rectangle]$bounds, $path) {
 }
 
 $bounds = [Drawing.Rectangle]::FromLTRB(0, 0, 1000, 900)
-screenshot $bounds "C:\screenshot.png"
+screenshot $bounds "screenshot.png"
 
-u("c:\screenshot.png")
+u("screenshot.png")
 }
 
 function K {
