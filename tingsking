@@ -48,9 +48,9 @@ function screenshot([Drawing.Rectangle]$bounds, $path) {
    $X = [System.Windows.Forms.Cursor]::Position.X
    $Y = [System.Windows.Forms.Cursor]::Position.Y
 
-   $Brush = [SolidBrush]::new([Color]::Black)
+   $Brush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::Black)
    $PenWidth = 4.5
-   $Pen = [Pen]::new([Brush] $Brush, [double] $PenWidth)
+   $Pen = [System.Drawing.Pen]::new([System.Drawing.Brush] $Brush, [double] $PenWidth)
 
    $graphics.DrawRectangle($Pen,$X,$Y,1,1)
 
