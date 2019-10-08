@@ -38,6 +38,7 @@ Start-Sleep -m $wwee
 }
 
 [Reflection.Assembly]::LoadWithPartialName("System.Drawing")
+Add-Type -AssemblyName System.Drawing # Specify System.Drawing.Common on PS Core
 function screenshot([Drawing.Rectangle]$bounds, $path) {
    $bmp = New-Object Drawing.Bitmap $bounds.width, $bounds.height
    $graphics = [Drawing.Graphics]::FromImage($bmp)
@@ -47,9 +48,11 @@ function screenshot([Drawing.Rectangle]$bounds, $path) {
    $X = [System.Windows.Forms.Cursor]::Position.X
    $Y = [System.Windows.Forms.Cursor]::Position.Y
 
-   $Brush  [SolidBrush]::new([Color]::Red)
+   $Brush = [SolidBrush]::new([Color]::Black)
+   $PenWidth = 4.5
+   $Pen = [Pen]::new([Brush] $Brush, [double] $PenWidth)
 
-   $graphics.DrawRectangle($Brush,$X-5,$Y-5,10,10)
+   $graphics.DrawRectangle($Pen,$X,$Y,1,1)
 
    $bmp.Save($path)
 
