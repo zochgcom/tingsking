@@ -37,6 +37,33 @@ param([int]$wwee)
 Start-Sleep -m $wwee
 }
 
+function cm
+{
+    $signature=@' 
+      [DllImport("user32.dll",CharSet=CharSet.Auto, CallingConvention=CallingConvention.StdCall)]
+      public static extern void mouse_event(long dwFlags, long dx, long dy, long cButtons, long dwExtraInfo);
+'@ 
+
+    $SendMouseClick = Add-Type -memberDefinition $signature -name "Win32MouseEventNew" -namespace Win32Functions -passThru 
+
+        $SendMouseClick::mouse_event(0x00000002, 0, 0, 0, 0);
+        $SendMouseClick::mouse_event(0x00000004, 0, 0, 0, 0);
+}
+
+function mm
+{
+   param($X,$Y)
+   
+   [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point($X,$Y)
+}
+
+function cp
+{
+   param($X,$Y)
+   mm $X $Y
+   cm
+}
+
 [Reflection.Assembly]::LoadWithPartialName("System.Drawing")
 Add-Type -AssemblyName System.Drawing # Specify System.Drawing.Common on PS Core
 function screenshot([Drawing.Rectangle]$bounds, $path) {
