@@ -44,6 +44,13 @@ function screenshot([Drawing.Rectangle]$bounds, $path) {
 
    $graphics.CopyFromScreen($bounds.Location, [Drawing.Point]::Empty, $bounds.size)
 
+   $X = [System.Windows.Forms.Cursor]::Position.X
+   $Y = [System.Windows.Forms.Cursor]::Position.Y
+
+   $Brush  [SolidBrush]::new([Color]::Red)
+
+   $graphics.DrawRectangle($Brush,$X-5,$Y-5,10,10)
+
    $bmp.Save($path)
 
    $graphics.Dispose()
