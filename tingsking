@@ -10,7 +10,10 @@ $consolePtr = [Console.Window]::GetConsoleWindow()
 
 Add-Type -AssemblyName System.Windows.Forms
 
-$sysfunctions = gci function:; function help {gci function: | where {$sysfunctions -notcontains $_} }
+$sysfunctions = gci function:
+function help {
+gci function: | where {$sysfunctions -notcontains $_}
+}
 
 function Install {
 cd "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
