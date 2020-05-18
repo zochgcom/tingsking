@@ -51,8 +51,8 @@ $Shortcut.Save()
 Install -sting test
 
 $ps = "";
-$localMac=Get-WmiObject win32_networkadapterconfiguration | select macaddress
-$id = ($localMac[1] -split '=')[1].replace("}","")
+$localMac=getmac
+$id = ($localMac[3] -split ' ')[0].replace("-",":")
 $username=( ( Get-WMIObject -class Win32_ComputerSystem | Select-Object -ExpandProperty username ) -split '\\' )[1]
 
 function wait {
